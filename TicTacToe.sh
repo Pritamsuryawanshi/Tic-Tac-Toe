@@ -43,12 +43,12 @@ function tossTheCoin()
 	GeneratingRandomValues
 	if (( random == 0))
 	then
-	echo "player1 will play"
+		echo "player1 will play"
 	else
-	echo "player2 will play"
+		echo "player2 will play"
 	fi
 }
 
 #MAIN
 
-tossTheCoin
+resetTheBoard
