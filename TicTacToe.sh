@@ -16,10 +16,16 @@ function resetTheBoard()
 	echo "--------------"
 }
 
+#Function to generate the random values
+function GeneratingRandomValues()
+{
+		random=$(( RANDOM%2 ))
+}
+
 #Function to assign the signs to players
 function assigningTheSigns()
 {
-	random=$(( RANDOM%2 ))
+	GeneratingRandomValues
 	if (( random == 0 ))
 	then
 		player1="x"
@@ -31,6 +37,18 @@ function assigningTheSigns()
 	echo "You have been assigned the $player1"
 }
 
+#Function to tossTheCoin
+function tossTheCoin()
+{
+	GeneratingRandomValues
+	if (( random == 0))
+	then
+	echo "player1 will play"
+	else
+	echo "player2 will play"
+	fi
+}
+
 #MAIN
 
-assigningTheSigns
+tossTheCoin
