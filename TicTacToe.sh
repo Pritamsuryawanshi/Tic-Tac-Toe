@@ -19,7 +19,7 @@ function resetTheBoard()
 #Function to generate the random values
 function GeneratingRandomValues()
 {
-		random=$(( RANDOM%2 ))
+	random=$(( RANDOM%2 ))
 }
 
 #Function to assign the signs to players
