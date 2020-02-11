@@ -5,17 +5,17 @@ echo "Welcome to the tic-tac-toe game "
 count=0
 
 #Tic-Tac-Toe array declaration
-gameBoard=(- - - - - - - - - -)
+board=(- - - - - - - - - -)
 
 #Function to reset the board
 function displayTheBoard()
 {
 	echo "--------------"
-	echo "  ${gameBoard[1]} | ${gameBoard[2]} | ${gameBoard[3]}"
+	echo "  ${board[1]} | ${board[2]} | ${board[3]}"
 	echo "--------------"
-	echo "  ${gameBoard[4]} | ${gameBoard[5]} | ${gameBoard[6]}"
+	echo "  ${board[4]} | ${board[5]} | ${board[6]}"
 	echo "--------------"
-	echo "  ${gameBoard[7]} | ${gameBoard[8]} | ${gameBoard[9]}"
+	echo "  ${board[7]} | ${board[8]} | ${board[9]}"
 	echo "--------------"
 }
 
@@ -55,9 +55,9 @@ function tossTheCoin()
 #Function to check if the place is empty or occupied
 function isEmpty()
 {
-	if [[ ${gameBoard[$positionNumber]} == "-" ]]
+	if [[ ${board[$positionNumber]} == "-" ]]
 	then
-		gameBoard[$positionNumber]="$1"
+		board[$positionNumber]="$1"
 		((count++))
 		echo "count is $count"
 	else
@@ -84,7 +84,7 @@ function play()
 #Function to check winning condition for rows
 function winningConditionForRows()
 {
-if [[ "${gameBoard[$i]}" == "${gameBoard[$i+1]}" &&  "${gameBoard[$i]}" == "${gameBoard[$i+2]}" ]] && [[ "${gameBoard[$i]}" != "-" ]] && (( i == 1 || i == 4 || i == 7 ))
+	if [[ "${board[$i]}" == "${board[$i+1]}" &&  "${board[$i]}" == "${board[$i+2]}" ]] && [[ "${board[$i]}" != "-" ]] && (( i == 1 || i == 4 || i == 7 ))
 	then
 		echo "You've won"
 		exit
@@ -95,7 +95,7 @@ if [[ "${gameBoard[$i]}" == "${gameBoard[$i+1]}" &&  "${gameBoard[$i]}" == "${ga
 #Function to check winning condition for rows
 function winningConditionForColumns()
 {
-	if [[ "${gameBoard[$i]}" == "${gameBoard[$i+3]}" && "${gameBoard[$i]}" == "${gameBoard[$i+6]}" ]] && [[ "${gameBoard[$i]}" != "-" ]] && (( i>=1 && i<=3 ))
+	if [[ "${board[$i]}" == "${board[$i+3]}" && "${board[$i]}" == "${board[$i+6]}" ]] && [[ "${board[$i]}" != "-" ]] && (( i>=1 && i<=3 ))
 	then
 		echo "You've won"
 		exit
@@ -104,11 +104,11 @@ function winningConditionForColumns()
 #Function to check winning condition for Diagonals
 function winningConditionForDiagonals()
 {
-	if [[ "${gameBoard[1]}" == "${gameBoard[5]}" ]] && [[ "${gameBoard[5]}" == "${gameBoard[9]}" ]] && [[ "${gameBoard[1]}" != "-" ]]
+	if [[ "${board[1]}" == "${board[5]}" ]] && [[ "${board[5]}" == "${board[9]}" ]] && [[ "${board[1]}" != "-" ]]
 	then
 		echo "You've won"
 		exit
-	elif [[ "${gameBoard[3]}" == "${gameBoard[5]}" ]] && [[ "${gameBoard[5]}" == "${gameBoard[7]}" ]] && [[ "${gameBoard[3]}" != "-" ]]
+	elif [[ "${board[3]}" == "${board[5]}" ]] && [[ "${board[5]}" == "${board[7]}" ]] && [[ "${board[3]}" != "-" ]]
 	then
 		echo "You've won"
 		exit
